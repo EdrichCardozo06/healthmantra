@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display All Images</title>
+</head>
+<body>
+    <h2>All Images</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        {% for image in images %}
+            <div style="text-align: center;">
+                <img src="{{ url_for('static', filename='uploads/' + image.file_name) }}" alt="{{ image.file_name }}" width="200" style="border: 1px solid #ccc; padding: 10px;">
+                <p style="margin: 5px 0; font-weight: bold;">{{ image.file_name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="/" style="display: block; text-align: center; margin-top: 20px; text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: #fff; border-radius: 5px;">Back to Home</a>
+</body>
+</html>

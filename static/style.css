@@ -1,0 +1,644 @@
+/*
+Theme Name: Healthmantra
+Theme URI: 
+Author: 
+Author URI: 
+Description: Healthmantra is specially designed product packaged for Healthmantra by TemplatesJungle.
+Version: 
+*/
+
+/*--------------------------------------------------------------
+This is main CSS file that contains custom style rules used in this template
+--------------------------------------------------------------*/
+
+/*------------------------------------*\
+    Table of contents
+\*------------------------------------*/
+
+/*------------------------------------------------
+
+CSS STRUCTURE:
+
+1. VARIABLES
+
+2. GENERAL TYPOGRAPHY
+  2.1 General Styles
+  2.2 Background Color
+  2.3 Text Color
+  2.4 Border Radius
+  2.5 Section
+    - Section Paddings
+    - Section Margins
+    - Section Title
+    - Content width
+  2.5 Buttons
+    - Button Sizes
+    - Button Shapes
+    - Button Color Scheme
+    - Button Aligns
+
+3. CONTENT ELEMENTS
+  3.1 Text Overlay
+  3.2 Navigation Sticky
+
+4. SITE STRUCTURE
+  4.1 Header
+    - Offcanvas
+  4.2 Intro
+  4.3 Testimonial
+  4.4 Training
+  4.5 Information
+  4.6 Newsletter
+  4.7 Footer
+
+    
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+:root {
+  --accent-color:             #333;
+  --black-color:              #000;
+  --dark-color:               #02140E;  
+  --gray-color-100:           #F9F7F5;
+  --gray-color-200:           #E1E1E1;
+  --gray-color-300:           #D8D8D8;
+  --gray-color-400:           #ced4da;
+  --gray-color-500:           #adb5bd;
+  --dark-gray-color:          #474341;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --light-color:              #fff;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --primary-color:            #3DCA97;
+  --primary-dim-color:        #3A5E51;  
+  --primary-light-color:      #EAF1E4;
+  --secondary-color:          #FF9548;
+  --yellow-color:             #F1B416;
+  --swiper-theme-color:       #807E7C !important;  
+
+}
+
+
+/* on mobile devices below 600px
+ */
+@media screen and (max-width: 600px) {
+    :root {
+        --header-height : 100px;
+        --header-height-min   : 80px;
+    }
+}
+
+/* Fonts */
+:root {
+    --body-font           : "Poppins", sans-serif;
+    --heading-font        : "Imbue", serif;
+}
+
+
+/*----------------------------------------------*/
+/* 2 GENERAL TYPOGRAPHY */
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+/*----------------------------------------------*/
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--accent-color);
+  margin: 0;
+}
+ul.inner-list li {
+   font-size: 1.2em;
+   color: var(--dark-gray-color);
+}
+a {
+  color: var(--dark-gray-colo);
+  text-decoration: none;
+  transition: 0.3s color ease-out;
+}
+a.light {
+  color: var(--light-color);
+}
+a.stretched-link {
+  color: var(--primary-color);
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+p.light {
+  color: var(--light-color);
+}
+ul.light li {
+  color: var(--light-color);
+}
+span.light {
+  color: var(--light-color);
+}
+svg.light {
+  color: var(--light-color);
+}
+svg.light:hover {
+  color: var(--primary-color);
+}
+table.light tr {
+   color: var(--light-color);
+}
+b, strong {
+  font-weight: bold;
+}
+.highlight {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+/* 2.2 Background Color
+/*----------------------------------------------*/
+.bg-dark {
+    background: var(--dark-color) !important;
+}
+.bg-light {
+    background: var(--light-color) !important;
+}
+.bg-gray-100 {
+  background: var(--gray-color-100) !important;
+}
+.bg-primary-light {
+    background: var(--primary-light-color) !important;
+}
+
+/* 2.3 Text Color
+/*----------------------------------------------*/
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+.text-primary-dim {
+  color: var(--primary-dim-color) !important;
+}
+
+/* 2.4 Border Radius
+/*----------------------------------------------*/
+.border-rounded-40 {
+   border-radius: 340px;
+}
+.border-circle {
+   border-radius: 50%;
+}
+
+/* 2.5 Section
+/*----------------------------------------------*/
+
+/* - Section Padding
+--------------------------------------------------------------*/
+.padding-small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.padding-medium {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.padding-large {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+.padding-xlarge {
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+/* - Section Margin
+--------------------------------------------------------------*/
+.margin-small {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+.margin-medium {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+.margin-large {
+  margin-top: 7em;
+  margin-bottom: 7em;
+}
+.margin-xlarge {
+  margin-top: 9em;
+  margin-bottom: 9em;
+}
+
+@media only screen and (max-width: 768px) {
+  .margin-small,
+  .margin-medium,
+  .margin-large {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+/* - Section Title
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5 {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    line-height: 1;
+}
+h1.light, h2.light, h3.light, h4.light, h5.light {
+    color: var(--light-color);
+}
+
+/* - Section width
+--------------------------------------------------------------*/
+.container-md {
+    max-width: 1450px;
+}
+.container-lg {
+    max-width: 1750px;
+}
+
+/*--------------------------------------------------------------
+/** 2.5 Buttons
+--------------------------------------------------------------*/
+/* - Button Sizes
+------------------------------------------------------------- */
+.btn.btn-small {
+  padding: 0.8em 2.7em;
+  font-size: 0.85em;
+}
+.btn.btn-medium {
+  padding: 1.2em 2.7em;
+  font-size: 1em;
+}
+.btn.btn-large {
+  padding: 0.8em 4.6em;
+  font-size: 1.6em;
+}
+.btn.btn-full {
+  display: block;
+  margin: .85em 0;
+  width: 100%;
+  letter-spacing: 0.12em;
+}
+
+/* - Button Shapes
+------------------------------------------------------------- */
+.btn.btn-rounded,
+.btn.btn-rounded::after {
+  border-radius: 6px;
+}
+.btn.btn-pill,
+.btn.btn-pill::after {
+  border-radius: 2em;
+}
+/* button outline */
+.btn.btn-outline-dark,
+.btn.btn-outline-light,
+.btn.btn-outline-accent {
+  background: transparent;
+  text-shadow: none;
+  box-shadow: none;
+}
+.btn.btn-outline-dark:hover::after,
+.btn.btn-outline-light:hover::after {
+  background-color: transparent;
+}
+.btn.btn-outline-dark {
+  border-color: rgba(0,0,0,0.4);
+  color: var(--dark-color);
+  transition: 0.5s ease-in-out;
+}
+.btn.btn-outline-dark:hover {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+.btn.btn-outline-light {
+  border-color: rgba(255,255,255,1);
+  color: var(--light-color);
+  transition: 0.5s ease-in-out;
+}
+.btn.btn-outline-light:hover {
+  color: var(--dark-color);
+}
+.btn.btn-outline-gray {
+  background: transparent;
+  border-color: var(--gray-color-200);
+  color: var(--dark-color);
+}
+.btn.btn-outline-gray:hover {
+  color: var(--light-color) !important;
+}
+.btn.btn-outline-accent {
+  background: transparent;
+  border-color: var(--accent-color);
+  color: var(--dark-color);
+}
+.btn.btn-outline-accent:hover {
+  border-color: var(--dark-color);
+  color: var(--dark-color) !important;
+}
+
+/* - Buttons Color Scheme
+------------------------------------------------------------- */
+.btn.btn-normal {
+  text-decoration: underline;
+  border: none;
+  font-weight: 800;
+}
+.btn.btn-normal:hover,
+.btn.btn-normal:focus {
+  text-decoration: none;
+  box-shadow: none;
+}
+.btn.btn-accent {
+  color: var(--light-color);
+  background-color: var(--accent-color);
+  border: none;
+}
+.btn.btn-accent:hover {
+  color: var(--light-color) !important;
+  background-color: var(--primary-color);
+}
+.btn.btn-black {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border: none;
+}
+.btn.btn-black:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+.btn.btn-light {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border: none;
+  transition: 0.5s ease-in-out;
+}
+.btn.btn-light:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+.btn-primary {
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: 0.5s ease-in-out;
+}
+.btn-primary:hover {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+/* - Buttons Aligns
+------------------------------------------------------------- */
+.btn-left {
+  text-align: left;
+  display: block;
+}
+.btn-center {
+  text-align: center;
+  display: block;
+}
+.btn-right {
+  text-align: right;
+  display: block;
+}
+
+/*----------------------------------------------*/
+/* 3 CONTENT ELEMENTS */
+/*----------------------------------------------*/
+
+/* 3.1 Text Overlay 
+------------------------------------------------------------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* 3.2 Navigation Sticky 
+------------------------------------------------------------- */
+nav.nav-bg{
+  background: rgba(0,0,0,0.8);
+  height: 80px;
+  padding: 10px 50px;
+}
+nav.nav-bg a.nav-link {
+  color: var(--light-color) !important;
+}
+
+
+/*----------------------------------------------*/
+/* 4 SITE STRUCTURE */
+/*----------------------------------------------*/
+
+/* 4.1 Header
+------------------------------------------------------------- */
+.site-header {
+  width: 100%;
+  z-index: 10;
+}
+#navbar a.nav-link:hover,
+#navbar a.nav-link:focus
+ {
+  color: var(--light-color);
+}
+.navbar-toggler svg.navbar-icon {
+  width: 40px;
+  height: 40px;
+  fill: var(--light-color);
+  outline: none;
+}
+
+@media only screen and (max-width: 1400px) {
+  #header-nav .btn-box {
+     display: none;
+   }
+  .justify-content-md-end {
+     justify-content: flex-end!important;
+   }
+ }
+
+/* - Offcanvas
+------------------------------------------------------------- */
+#header-nav .offcanvas.show {
+  z-index: 9999;
+  background-color: var(--gray-color-100);
+}
+.offcanvas.show .nav-item a.nav-link,
+#header-nav .offcanvas.show .nav-item a:hover {
+  font-size: 2em;
+  color: var(--dark-color);
+}
+.offcanvas.show .offcanvas-body .navbar-nav {
+  align-items: unset!important;
+  padding-left: 20px;
+}
+
+@media (min-width: 1399px) {
+  #header .navbar-expand-lg {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  #header .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  #header .navbar-expand-lg .navbar-toggler {
+    display: none;
+  }
+}
+
+/* 4.2 Intro
+------------------------------------------------------------- */
+.banner-content h1.banner-title {
+  font-size: 15.7em;
+  animation: fade-in 1s;
+  animation-duration: 7s;
+}
+.banner-content h2.subtitle {
+  font-size: 8.7em;
+  animation: fade-in 1s;
+  animation-duration: 7s;
+}
+
+@media (max-width: 1366px) {
+  #intro {
+    padding-top: 2em;
+ }
+  .banner-content h1.banner-title {
+    font-size: 12.7em;
+ }
+ .banner-content h2.subtitle {
+    font-size: 6.2em;
+  }
+}
+@media (max-width:580px) {
+  .banner-content h1.banner-title {
+    font-size: 7.7em;
+ }
+ .banner-content h2.subtitle {
+    font-size: 3.2em;
+  }
+}
+
+/* 4.3 Testimonial
+------------------------------------------------------------- */
+.testimonial {
+  bottom: 100px;
+}
+.testimonial .review-item {
+  width: 45%;
+  box-shadow: -1px 7px 10px -13px rgba(0,0,0,0.45);
+}
+.testimonial .review-item .review-content {
+  width: 80%;
+}
+.review-item svg.star {
+  fill: var(--yellow-color);
+}
+
+@media (max-width: 1267px) {
+  .testimonial {
+    bottom: -50px;
+  } 
+  .testimonial .review-item {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width:991px) {
+  .testimonial .review-item {
+    width: 85%;
+  }
+}
+
+@media (max-width:580px) {
+  .testimonial .review-item {
+    width: 95%;
+  }
+  .testimonial .review-item .review-content {
+    width: 65%;
+  }
+}
+
+/* 4.4 Training
+------------------------------------------------------------- */
+.training-card .card-detail {
+  bottom: 90px;
+  left: 45px;
+  width: 60%;
+}
+
+/* 4.5 Information
+------------------------------------------------------------- */
+#information .info-detail {
+  padding: 7em 4em;
+}
+
+@media (max-width:1280px) {
+  #information .info-detail {
+    padding: 4em;
+  }
+}
+
+/* 4.6 Newsletter
+------------------------------------------------------------- */
+.newsletter-form {
+  width: 60%;
+}
+.newsletter-content input {
+  width: 100%;
+  height: 68px;
+  border: 1px solid var(--gray-color-300);
+}
+.newsletter-content button {
+  top: 2px;
+  right: 0;
+}
+
+@media (max-width:1366px) {
+  .newsletter-form {
+    width: 90%;
+  }
+}
+
+@media (max-width:580px) {
+  .newsletter-content button {
+    top: 76px;
+    width: 100%;
+  }
+} 
+
+
+/* 4.7 Footer
+------------------------------------------------------------- */
+@media (max-width:580px) {
+  #footer .row {
+    margin: 0 auto;
+    text-align: center;
+  }
+  #footer ul.social-links {
+    margin: 0 auto;
+    justify-content: center;
+  }
+} 
+
+.display-2 text-primary-dim fw-bold{
+  color: blue;}

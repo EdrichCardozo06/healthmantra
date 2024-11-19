@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pose detection</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos/aos.css') }}">
+    <link href="{{ url_for('static', filename='css/date-time-picker-component.min.css') }}" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imbue:wght@400;500;600;700;800;900&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body>
+
+    <header id="header" class="site-header pt-5">
+      <nav id="header-nav" class="navbar navbar-expand-lg px-3 fixed-top">
+        
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+
+            <img src="{{ url_for('static', filename='images/-1_orig.jpeg') }}" class="logo" style="width: 70px; height: 70px;">
+          </a>
+          <button class="navbar-toggler d-flex d-lg-none order-3 p-2 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <svg class="navbar-icon">
+              <use xlink:href="#navbar-icon"></use>
+            </svg>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+            <div class="offcanvas-header px-4 pb-0">
+              <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul id="navbar" class="navbar-nav text-uppercase justify-content-lg-end align-items-center flex-grow-1 pe-3">
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-uppercase text-dark fw-bold" href="#intro">Home</a>
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-uppercase text-dark fw-bold" href="#newsletter">predict pose</a>
+                </li> 
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="intro" class="padding-large position-relative overflow-hidden" style="background-image: url({{ url_for('static', filename='images/text-pattern.jpg') }}); background-repeat: no-repeat; background-position: center top;">
+      <div class="container-md">
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="banner-content pt-5">
+              <h1 class="banner-title text-secondary">YOGA</h1>
+              <h2 class="subtitle text-primary-dim">Pose Classification</h2>
+            </div>              
+          </div>
+
+          <div class="col-lg-6">
+            <div class="image-holder position-relative">
+              <img src="{{ url_for('static', filename='images/banner-item1.png') }}" alt="banner" class="img-fluid">
+          
+            </div>              
+          </div>
+
+        </div>
+      </div>
+    </section>   
+
+    <section id="newsletter" class="padding-large">
+      <div class="container-md">
+          <div class="row">
+            <div class="newsletter-content" style="background-image: url({{ url_for('static', filename='images/pattern-bg.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center; height: auto;" data-aos="fade-left">                
+                <div class="col-lg-8 col-md-10 mx-auto text-center padding-large">
+                      <h2 class="display-2 text-primary-dim fw-bold">Let's classify <span class="text-secondary d-block">Your yoga pose...</span></h2>
+                      <p>Upload a valid image of a yoga pose in JPEG, PNG, JPG, or GIF format.</p>
+      
+                      <!-- Display success message if available -->
+                      <p>
+                          {% with messages = get_flashed_messages() %}
+                          {% if messages %}
+                          {% for message in messages %}
+                          <div class="alert alert-success">
+                              <strong>{{ message }}</strong>
+                          </div>
+                          {% endfor %}
+                          {% endif %}
+                          {% endwith %}
+                      </p>
+      
+                      <!-- File upload form -->
+                      <form method="post" action="/upload" enctype="multipart/form-data" class="form-inline">
+                          <div class="form-group">
+                              <label for="fileInput">Choose Images:</label>
+                              <input type="file" name="files[]" id="fileInput" class="form-control" multiple>
+                          </div>
+                          <input type="submit" name="submit" value="UPLOAD" class="btn btn-primary">
+                      </form>
+      
+                      <br>
+      
+                      <!-- Display uploaded image and predicted pose -->
+                      {% if uploaded_image %}
+                      <h3>Uploaded Image:</h3>
+                      <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Uploaded Image" width="300">
+      
+                      <h2 class="display-4 text-primary-dim fw-bold">Predicted Poses:</h2>
+                      <ul>
+                          {% for pose in predicted_poses %}
+                          <li>{{ pose }}</li>
+                          {% endfor %}
+                      </ul>
+                      {% endif %}
+      
+                      <!-- Display All Images button -->
+                      <form method="get" action="/display/all">
+                          <button type="submit" class="btn btn-primary">Display All Images</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  
+    <footer id="footer" class="overflow-hidden padding-large pb-6 bg-dark">
+      <div class="col-lg-6 mx-auto text-center pb-2">
+          <div class="d-flex align-items-center justify-content-center">
+              <p class="light" style="font-size: 24px;">YOGA DETECTION AND CLASSIFICATION......</p>
+          </div>
+      </div>
+  </footer>
+  
+
+ <script src="{{ url_for('static', filename='js/jquery-1.11.0.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='aos/aos.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    </body>
+</html>
