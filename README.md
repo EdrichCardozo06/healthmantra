@@ -76,6 +76,9 @@ The web application will be available at http://127.0.0.1:5000/.
 ---
 ### **Demo**
 
+https://github.com/user-attachments/assets/3d48392d-ac5b-4ea6-8e50-a5888b067cf5
+
+
 
 
 
